@@ -5,7 +5,7 @@ from ultralytics import YOLO
 class YOLOTrainingGUI:
     def __init__(self, master):
         self.master = master
-        master.title("YOLO Training GUI")
+        master.title("YOLOv8 Training GUI")
 
         self.model_options = ['yolov8n', 'yolov8s', 'yolov8m', 'yolov8l', 'yolov8x']
         self.selected_model = tk.StringVar(value=self.model_options[0])
