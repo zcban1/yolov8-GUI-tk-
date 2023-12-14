@@ -22,6 +22,13 @@ class YOLOTrainingGUI:
         self.create_entry("AMP:", "amp", 10, default_value="False")
         self.create_entry("Validation:", "val", 10, default_value="False")
         self.create_entry("Save Period:", "save_period", 10, default_value="-1")
+        self.create_entry("Workers:", "workers", 10, default_value="8")
+        self.create_entry("Single Class:", "single_cls", 10, default_value="False")
+        self.create_entry("Verbose:", "verbose", 10, default_value="False")
+        self.create_entry("Project:", "project", 50,default_value="None")
+
+
+
 
         self.create_button("Train Model", self.train_model)
 
