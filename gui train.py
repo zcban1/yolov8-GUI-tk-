@@ -26,6 +26,7 @@ class YOLOTrainingGUI:
         self.create_entry("Single Class:", "single_cls", 10, default_value="False")
         self.create_entry("Verbose:", "verbose", 10, default_value="False")
         self.create_entry("Project:", "project", 50,default_value="None")
+        self.create_entry("Patience:", "patience", 10, default_value="50")
 
 
 
