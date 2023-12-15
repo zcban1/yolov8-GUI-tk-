@@ -63,7 +63,7 @@ class YOLOTrainingGUI:
         file_path = filedialog.askopenfilename(filetypes=[("YAML files", "*.yaml")])
         if file_path:
             self.yaml_path.set(file_path)
-
+    
     def train_model(self):
         yaml_path = self.yaml_path.get()
         if yaml_path:
@@ -75,15 +75,23 @@ class YOLOTrainingGUI:
             amp = self.amp.get().capitalize() == 'False'
             val = self.val.get().capitalize() == 'True'
             save_period = int(self.save_period.get())
+            workers = int(self.workers.get())
+            single_cls = self.single_cls.get().capitalize() == 'True'
+            verbose = self.verbose.get().capitalize() == 'True'
+            project = self.project.get()
+            patience = int(self.patience.get())
 
             model_path = f"{selected_model}.pt"
             self.model = YOLO(model_path)
 
             results = self.model.train(data=yaml_path, epochs=epochs, batch=batch, imgsz=imgsz,
-                                       cache=cache, amp=amp, val=val, save_period=save_period)
+                                       cache=cache, amp=amp, val=val, save_period=save_period,
+                                       workers=workers, single_cls=single_cls, verbose=verbose,
+                                       project=project, patience=patience)
             print("Training results:", results)
         else:
             print("Please select a YAML file.")
+
 
     def browse_resume_lastpt(self):
         file_path = filedialog.askopenfilename(filetypes=[("LAST.PT", "*.pt")])
