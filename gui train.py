@@ -19,7 +19,7 @@ class YOLOTrainingGUI:
         self.create_entry("Batch Size (batch):", "batch", 10, default_value="-1")
         self.create_entry("Epochs:", "epochs", 10, default_value="300")
         self.create_entry("Cache:", "cache", 10, default_value="False")
-        self.create_entry("AMP:", "amp", 10, default_value="False")
+        self.create_entry("AMP:", "amp", 10, default_value="True")
         self.create_entry("Validation:", "val", 10, default_value="False")
         self.create_entry("Save Period:", "save_period", 10, default_value="-1")
         self.create_entry("Workers:", "workers", 10, default_value="8")
@@ -72,7 +72,7 @@ class YOLOTrainingGUI:
             batch = int(self.batch.get())
             epochs = int(self.epochs.get())
             cache = self.cache.get().capitalize() == 'True'
-            amp = self.amp.get().capitalize() == 'False'
+            amp = self.amp.get().capitalize() == 'True'
             val = self.val.get().capitalize() == 'True'
             save_period = int(self.save_period.get())
             workers = int(self.workers.get())
